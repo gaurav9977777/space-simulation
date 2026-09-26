@@ -1,0 +1,356 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+
+    background: #02040a;
+    color: white;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+canvas {
+    display: block;
+}
+
+
+/* =========================================================
+   CONTROL PANEL
+========================================================= */
+
+#controlPanel {
+
+    position: fixed;
+
+    top: 15px;
+    left: 15px;
+
+    width: 330px;
+
+    max-height:
+        calc(100vh - 30px);
+
+    overflow-y: auto;
+    overflow-x: visible;
+
+    padding: 16px;
+
+    z-index: 10;
+
+    background:
+        rgba(7, 12, 25, 0.95);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    border-radius: 14px;
+
+    backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 10px 40px
+        rgba(0,0,0,0.6);
+
+    transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Sliding drawer closed state */
+#controlPanel.collapsed {
+    transform: translateX(calc(-100% - 15px));
+}
+
+/* Floating tab handle on the side of the sliding control drawer */
+#panelToggleTab {
+    position: absolute;
+    top: 16px;
+    left: 100%;
+    background: rgba(10, 18, 35, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    padding: 10px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    color: #38bdf8;
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(12px);
+    user-select: none;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+#panelToggleTab:hover {
+    background: rgba(20, 32, 58, 0.98);
+    color: #00f0ff;
+    box-shadow: 8px 8px 24px rgba(0, 240, 255, 0.25);
+}
+
+/* Accent pulse on the tab when drawer is collapsed to indicate it can slide out */
+#controlPanel.collapsed #panelToggleTab {
+    background: rgba(14, 26, 48, 0.98);
+    border-color: rgba(0, 240, 255, 0.45);
+    color: #00f0ff;
+    box-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
+}
+
+#panelToggleIcon {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+/* Header button inside drawer to slide closed */
+.drawerCloseBtn {
+    font-size: 11px;
+    padding: 3px 8px;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #94a3b8;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.drawerCloseBtn:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.5);
+    color: #fca5a5;
+}
+
+/* 2-column grid for bulk debris management buttons */
+.bulkButtonGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.bulkButtonGrid button {
+    margin: 0;
+    width: 100%;
+    font-size: 11px;
+    padding: 7px 8px;
+}
+
+/* Accordion sections that slide open/closed when clicked */
+.accordionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    padding: 3px 0;
+    transition: color 0.2s;
+}
+
+.accordionHeader:hover .sectionTitle {
+    color: #00f0ff;
+}
+
+.accordionHeader .sectionTitle {
+    margin-bottom: 0;
+}
+
+.accordionArrow {
+    font-size: 10px;
+    color: #60b4ff;
+    transition: transform 0.28s ease;
+}
+
+.accordionBody {
+    overflow: hidden;
+    max-height: 1400px;
+    margin-top: 8px;
+    transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.25s ease;
+}
+
+.section.collapsed .accordionBody {
+    max-height: 0 !important;
+    opacity: 0;
+    pointer-events: none;
+    margin-top: 0;
+    padding: 0;
+}
+
+.section.collapsed .accordionArrow {
+    transform: rotate(-90deg);
+}
+
+
+#controlPanel h2 {
+
+    margin:
+        0 0 5px;
+
+    font-size: 20px;
+}
+
+
+.subtitle {
+
+    color: #8f9aae;
+
+    font-size: 12px;
+
+    margin-bottom: 15px;
+}
+
+
+.section {
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    margin-top: 14px;
+
+    padding-top: 14px;
+}
+
+
+.sectionTitle {
+
+    color: #62b3ff;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+
+    text-transform: uppercase;
+}
+
+
+label {
+
+    display: block;
+
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+    color: #b9c3d3;
+
+    font-size: 12px;
+}
+
+
+select {
+
+    width: 100%;
+
+    padding: 8px;
+
+    border-radius: 7px;
+
+    border:
+        1px solid
+        #34425c;
+
+    background: #141d2e;
+
+    color: white;
+}
+
+
+input[type="range"] {
+
+    width: 100%;
+
+    accent-color: #3d9cff;
+}
+
+
+.value {
+
+    float: right;
+
+    color: #60b4ff;
+}
+
+
+button {
+
+    padding:
+        8px 11px;
+
+    margin:
+        2px;
+
+    border-radius: 7px;
+
+    border:
+        1px solid
+        #35445d;
+
+    background: #172237;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+button:hover {
+
+    background: #263754;
+}
+
+
+button.primary {
+
+    background: #1168c8;
+}
+
+
+button.danger {
+
+    background: #902c37;
+}
+
+
+.stats {
+
+    color: #aeb8ca;
+
+    font-family: monospace;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+#help {
+
+    position: fixed;
+
+    right: 15px;
+    bottom: 15px;
+
+    padding:
+        8px 12px;
+
+    border-radius: 8px;
+
+    background:
+        rgba(0,0,0,0.55);
+
+    color: #9da8bb;
+
+    font-size: 12px;
+
+    z-index: 5;
+}

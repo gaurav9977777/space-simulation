@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>3D Orbital Debris Simulation</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <!--
+        Import Map:
+        Browser ko batata hai ki "three" module
+        actually kis CDN URL par available hai.
+    -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+        }
+    }
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Main JavaScript application -->
+    <script
+        type="module"
+        src="./main.js">
+    </script>
+
+</body>
+</html>
