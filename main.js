@@ -2132,7 +2132,7 @@ function createPanel() {
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
             <div>
                 <h2 style="margin:0 0 3px 0;">🌍 DISHA</h2>
-                <div class="subtitle" style="margin:0;">LEO Simulation &amp;Cose Da Vinci Interceptor</div>
+                <div class="subtitle" style="margin:0;">LEO Simulation &amp;Code Da Vinci Interceptor</div>
             </div>
             <button id="panelCloseBtn" class="drawerCloseBtn" title="Slide Controls Closed (Tab / H)">
                 ◀ Hide [Tab]
