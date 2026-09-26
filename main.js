@@ -2131,8 +2131,8 @@ function createPanel() {
 
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
             <div>
-                <h2 style="margin:0 0 3px 0;">🌍 Orbital Debris Lab</h2>
-                <div class="subtitle" style="margin:0;">5-Orbit LEO Simulation &amp; Da Vinci Interceptor</div>
+                <h2 style="margin:0 0 3px 0;">🌍 DISHA</h2>
+                <div class="subtitle" style="margin:0;">LEO Simulation &amp;Cose Da Vinci Interceptor</div>
             </div>
             <button id="panelCloseBtn" class="drawerCloseBtn" title="Slide Controls Closed (Tab / H)">
                 ◀ Hide [Tab]
@@ -2213,7 +2213,7 @@ function createPanel() {
         <div class="section" id="secSpacecraft">
 
             <div class="accordionHeader">
-                <div class="sectionTitle">🚀 Da Vinci Spacecraft (Orbit 3)</div>
+                <div class="sectionTitle">🚀 DISHA Spacecraft (Orbit 3)</div>
                 <span class="accordionArrow">▼</span>
             </div>
 
@@ -2234,10 +2234,10 @@ function createPanel() {
                         ☄️ [L] Deorbit
                     </button>
                     <button id="btnStore" title="Key: R">
-                        📦 [R] Store in Craft
+                        📦 [R] Store
                     </button>
                     <button id="btnCameraFollow" title="Key: V">
-                        🎥 [V] Follow Craft
+                        🎥 [V] Follow SpaceCraft
                     </button>
                 </div>
 
